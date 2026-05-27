@@ -1,0 +1,121 @@
+/* ============================================================
+   AUTH PAGES — Login + Signup
+   ============================================================ */
+
+.auth-page {
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-base);
+  padding: var(--sp-4);
+  padding-top: calc(var(--sp-4) + env(safe-area-inset-top));
+}
+
+.auth-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.auth-bg__orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.10;
+}
+.auth-bg__orb--1 {
+  width: 480px; height: 480px;
+  background: var(--accent);
+  top: -120px; right: -120px;
+}
+.auth-bg__orb--2 {
+  width: 360px; height: 360px;
+  background: var(--finance);
+  bottom: -80px; left: -80px;
+}
+
+.auth-container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 420px;
+}
+
+.auth-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-2xl);
+  padding: 32px 28px;
+  box-shadow: var(--shadow-lg), 0 0 60px rgba(108,92,231,0.07);
+}
+@media (max-width: 480px) {
+  .auth-card { padding: 24px 18px; border-radius: var(--r-xl); }
+}
+
+.auth-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: var(--sp-6);
+}
+.auth-brand__icon {
+  width: 32px; height: 32px;
+  background: var(--accent);
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  box-shadow: var(--shadow-accent);
+}
+.auth-brand__name {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1rem;
+  color: var(--text-primary);
+  letter-spacing: -0.03em;
+}
+
+.auth-header { margin-bottom: var(--sp-6); }
+.auth-header h1 { font-size: 1.7rem; margin-bottom: 4px; }
+.auth-header p  { font-size: 0.88rem; color: var(--text-muted); }
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.auth-footer {
+  margin-top: var(--sp-5);
+  text-align: center;
+}
+.auth-footer p    { font-size: 0.84rem; color: var(--text-muted); }
+.auth-footer a    { color: var(--accent-bright); font-weight: 600; }
+
+/* Password strength meter */
+.pw-strength {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 6px;
+}
+.pw-strength__bar {
+  flex: 1; height: 3px;
+  background: var(--bg-elevated);
+  border-radius: var(--r-full);
+  transition: background 0.3s;
+}
+.pw-strength__bar--1 { background: var(--danger); }
+.pw-strength__bar--2 { background: var(--warning); }
+.pw-strength__bar--3 { background: var(--success); }
+.pw-strength__label {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-left: 4px;
+  min-width: 40px;
+  font-family: var(--font-display);
+}

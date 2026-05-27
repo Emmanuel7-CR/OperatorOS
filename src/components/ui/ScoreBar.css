@@ -1,0 +1,165 @@
+/* ============================================================
+   SCORE BAR — Always-visible OS header
+   ============================================================ */
+
+.score-bar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: 10px 16px;
+  padding-top: calc(10px + env(safe-area-inset-top));
+  min-height: calc(var(--score-bar-height) + env(safe-area-inset-top));
+  background: rgba(7, 7, 15, 0.96);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid var(--border);
+}
+
+/* Menu button — mobile only */
+.score-bar__menu {
+  flex-shrink: 0;
+}
+@media (min-width: 1024px) { .score-bar__menu { display: none; } }
+
+/* Brand — desktop only */
+.score-bar__brand {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+@media (min-width: 1024px) { .score-bar__brand { display: flex; } }
+
+.score-bar__brand-name {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.92rem;
+  color: var(--text-primary);
+  letter-spacing: -0.03em;
+}
+
+/* ── Center: score track ── */
+.score-bar__center {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+}
+
+.score-track {
+  height: 5px;
+  background: var(--bg-elevated);
+  border-radius: var(--r-full);
+  overflow: hidden;
+}
+.score-track__fill {
+  height: 100%;
+  border-radius: var(--r-full);
+  transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  background: var(--text-muted);
+}
+.score-track__fill[data-grade="elite"] { background: linear-gradient(90deg, var(--score-elite), var(--accent-bright)); }
+.score-track__fill[data-grade="high"]  { background: linear-gradient(90deg, var(--score-high), #55efc4); }
+.score-track__fill[data-grade="mid"]   { background: linear-gradient(90deg, var(--score-mid), #ffeaa7); }
+.score-track__fill[data-grade="low"]   { background: linear-gradient(90deg, var(--score-low), #fab1a0); }
+
+/* ── Breakdown pips ── */
+.score-bar__breakdown {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+}
+
+.breakdown-pip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+}
+
+.breakdown-pip__bar {
+  width: 14px;
+  height: 14px;
+  background: var(--bg-elevated);
+  border-radius: 3px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
+
+.breakdown-pip__fill {
+  width: 100%;
+  border-radius: 3px;
+  transition: height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  min-height: 2px;
+}
+
+/* ── Right side ── */
+.score-bar__right {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  flex-shrink: 0;
+}
+
+.score-bar__meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1px;
+}
+
+.score-bar__date {
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.score-bar__grade {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+}
+.score-bar__grade[data-grade="elite"] { color: var(--score-elite); }
+.score-bar__grade[data-grade="high"]  { color: var(--score-high); }
+.score-bar__grade[data-grade="mid"]   { color: var(--score-mid); }
+.score-bar__grade[data-grade="low"]   { color: var(--score-low); }
+
+.score-bar__number {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 1.5rem;
+  letter-spacing: -0.05em;
+  color: var(--text-muted);
+  min-width: 44px;
+  text-align: right;
+  line-height: 1;
+}
+.score-bar__number[data-grade="elite"] { color: var(--score-elite); }
+.score-bar__number[data-grade="high"]  { color: var(--score-high); }
+.score-bar__number[data-grade="mid"]   { color: var(--score-mid); }
+.score-bar__number[data-grade="low"]   { color: var(--score-low); }
+
+/* ── Realtime connection dot ── */
+.rt-dot {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  margin-left: 5px;
+  vertical-align: middle;
+  margin-bottom: 1px;
+  animation: rt-pulse 2.5s ease-in-out infinite;
+}
+
+@keyframes rt-pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.35; }
+}
