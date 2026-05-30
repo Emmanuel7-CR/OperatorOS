@@ -1,0 +1,87 @@
+.finance-shell {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-5);
+}
+
+.finance-shell__header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+
+.finance-shell__title-row {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+}
+
+.finance-shell__icon {
+  width: 36px; height: 36px;
+  background: var(--finance-dim);
+  color: var(--finance);
+  border-radius: var(--r-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Tab nav */
+.finance-tab-nav {
+  display: flex;
+  gap: var(--sp-1);
+  overflow-x: auto;
+  padding-bottom: 2px;
+}
+
+.finance-tab {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 7px 12px;
+  border-radius: var(--r-full);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+  border: 1px solid transparent;
+  flex-shrink: 0;
+}
+
+.finance-tab:hover {
+  color: var(--text-secondary);
+  background: var(--bg-elevated);
+}
+
+.finance-tab--active {
+  color: var(--finance);
+  background: var(--finance-dim);
+  border-color: rgba(0, 206, 201, 0.25);
+}
+
+.finance-shell__content {
+  min-height: 200px;
+}
+
+/* Execute module tab active colour */
+.finance-tab--execute {
+  color: var(--execution);
+  background: var(--execution-dim);
+  border-color: rgba(253, 121, 168, 0.25);
+}
+
+.finance-tab--growth {
+  color: var(--growth);
+  background: var(--growth-dim);
+  border-color: rgba(253, 203, 110, 0.25);
+}
+
+.finance-tab--vision {
+  color: var(--vision);
+  background: var(--vision-dim);
+  border-color: rgba(162, 155, 254, 0.25);
+}

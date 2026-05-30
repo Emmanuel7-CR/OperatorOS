@@ -1,0 +1,158 @@
+/* ============================================================
+   VISION PAGES — Dream Board styles
+   ============================================================ */
+
+.vision-page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-5);
+  padding-bottom: var(--sp-16);
+}
+
+.vision-pill--active {
+  background: var(--vision-dim);
+  border-color: rgba(162, 155, 254, 0.35);
+  color: var(--vision);
+}
+
+/* ── Vision grid ── */
+.vision-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-4);
+}
+@media (min-width: 540px) {
+  .vision-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (min-width: 900px) {
+  .vision-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ── Vision card ── */
+.vision-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  padding: var(--sp-4);
+  transition: all 0.16s;
+  border-left: 3px solid color-mix(in srgb, var(--vision-cat-color, var(--vision)) 60%, transparent);
+}
+.vision-card:hover {
+  border-color: var(--border-active);
+  background: var(--bg-card-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+.vision-card--achieved {
+  opacity: 0.75;
+  border-left-color: color-mix(in srgb, var(--vision-cat-color, var(--vision)) 80%, transparent);
+}
+
+.vision-card__header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.vision-card__cat-icon { font-size: 1.1rem; }
+
+.vision-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+.vision-card__title {
+  font-size: 0.92rem;
+  line-height: 1.3;
+}
+.vision-card__desc {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.vision-card__date,
+.vision-card__target {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-family: var(--font-display);
+  font-weight: 500;
+}
+.vision-card__target strong { color: var(--vision); }
+
+.vision-card__achieve-btn {
+  width: 100%;
+  padding: 7px;
+  border-radius: var(--r-md);
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition: all 0.15s;
+  margin-top: 2px;
+  -webkit-tap-highlight-color: transparent;
+}
+.vision-card__achieve-btn:hover {
+  border-color: var(--vision);
+  color: var(--vision);
+  background: var(--vision-dim);
+}
+.vision-card__achieve-btn--done {
+  font-weight: 700;
+}
+
+/* Reuse */
+.icon-action-btn {
+  width: 24px; height: 24px;
+  border-radius: 5px; border: none;
+  background: var(--bg-elevated);
+  color: var(--text-muted);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: all 0.13s;
+}
+.icon-action-btn:hover { background: var(--bg-card-hover); color: var(--text-primary); }
+.icon-action-btn--danger:hover { background: var(--expense-dim); color: var(--expense); }
+
+.task-filter-pill {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 11px;
+  border-radius: var(--r-full);
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text-muted);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.74rem;
+  cursor: pointer;
+  transition: all 0.14s;
+  white-space: nowrap;
+  -webkit-tap-highlight-color: transparent;
+}
+.task-filter-pill:hover { border-color: var(--border-active); color: var(--text-secondary); }
+
+.task-add-fab {
+  position: fixed;
+  bottom: calc(var(--nav-height) + env(safe-area-inset-bottom) + 14px);
+  right: 18px;
+  width: 52px; height: 52px;
+  border-radius: var(--r-full);
+  color: white;
+  border: none;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: all 0.18s;
+  z-index: 25;
+}
+.task-add-fab:hover  { transform: scale(1.07); }
+.task-add-fab:active { transform: scale(0.93); }
+@media (min-width: 1024px) { .task-add-fab { bottom: 28px; right: 32px; } }

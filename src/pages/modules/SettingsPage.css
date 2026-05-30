@@ -1,0 +1,104 @@
+.settings-page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-5);
+}
+
+.settings-page__header { margin-bottom: var(--sp-2); }
+.settings-page__header h2 { font-size: 1.5rem; margin-bottom: 4px; }
+.settings-page__header p  { font-size: 0.86rem; color: var(--text-muted); }
+
+.settings-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  padding: var(--sp-5);
+}
+
+.settings-section__header {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding-bottom: var(--sp-3);
+  border-bottom: 1px solid var(--border);
+}
+.settings-section__header h3 { font-size: 0.96rem; }
+
+.settings-section__icon {
+  width: 34px; height: 34px;
+  border-radius: var(--r-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.settings-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ── Category form ── */
+.cat-form {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: var(--sp-4);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* ── Category list ── */
+.cat-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.cat-list-item {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 7px 4px;
+  border-radius: var(--r-sm);
+  transition: background 0.13s;
+}
+.cat-list-item:hover { background: var(--bg-surface); }
+
+.cat-list-item__icon {
+  width: 32px; height: 32px;
+  border-radius: var(--r-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  flex-shrink: 0;
+}
+
+.cat-list-item__name {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 0.86rem;
+  color: var(--text-primary);
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ── Action buttons ── */
+.icon-action-btn {
+  width: 26px; height: 26px;
+  border-radius: 6px; border: none;
+  background: var(--bg-elevated);
+  color: var(--text-muted);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: all 0.13s;
+  flex-shrink: 0;
+}
+.icon-action-btn:hover { background: var(--bg-card-hover); color: var(--text-primary); }
+.icon-action-btn--danger:hover { background: var(--expense-dim); color: var(--expense); }

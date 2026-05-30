@@ -1,0 +1,461 @@
+/* ============================================================
+   EXECUTE PAGES — Shared styles
+   ============================================================ */
+
+.execute-page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-6);
+  padding-bottom: var(--sp-16);
+}
+
+/* ── Score Card ── */
+.exec-score-card {
+  display: flex;
+  gap: var(--sp-5);
+  align-items: stretch;
+  background: linear-gradient(135deg, #1a1130 0%, #160e28 60%, #100a20 100%);
+  border-color: rgba(253, 121, 168, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.exec-score-card::before {
+  content: '';
+  position: absolute;
+  top: -40px; right: -40px;
+  width: 140px; height: 140px;
+  background: radial-gradient(circle, rgba(253,121,168,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.exec-score-card__left {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  flex-shrink: 0;
+}
+
+.exec-score-card__label {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  font-family: var(--font-display);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.exec-score-card__number {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(2.6rem, 7vw, 3.6rem);
+  letter-spacing: -0.06em;
+  line-height: 1;
+  color: var(--text-muted);
+}
+.exec-score-card__number[data-grade="elite"] { color: var(--score-elite); }
+.exec-score-card__number[data-grade="high"]  { color: var(--score-high); }
+.exec-score-card__number[data-grade="mid"]   { color: var(--score-mid); }
+.exec-score-card__number[data-grade="low"]   { color: var(--score-low); }
+
+.exec-score-card__date {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-family: var(--font-display);
+}
+
+.exec-score-card__right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+/* ── Score pip bars ── */
+.exec-score-pip {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.exec-score-pip__track {
+  height: 4px;
+  background: var(--bg-elevated);
+  border-radius: var(--r-full);
+  overflow: hidden;
+}
+
+.exec-score-pip__fill {
+  height: 100%;
+  border-radius: var(--r-full);
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  min-width: 3px;
+}
+
+.exec-score-pip__meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.65rem;
+  font-family: var(--font-display);
+  color: var(--text-muted);
+}
+
+/* ── Section title with icon ── */
+.exec-section-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.95rem;
+}
+
+.exec-count {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  background: var(--bg-elevated);
+  padding: 2px 8px;
+  border-radius: var(--r-full);
+  font-weight: 400;
+}
+
+/* ── Empty state ── */
+.exec-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-3);
+  padding: var(--sp-5) var(--sp-4);
+  color: var(--text-muted);
+  font-size: 0.86rem;
+  font-family: var(--font-display);
+  flex-wrap: wrap;
+}
+
+/* ── Task list ── */
+.exec-task-list { padding: 4px 0; }
+
+.exec-task-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 14px;
+  transition: background 0.13s;
+}
+.exec-task-row:hover { background: var(--bg-card-hover); }
+.exec-task-row--divider { border-bottom: 1px solid var(--border); }
+.exec-task-row--done .exec-task-row__title {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+/* ── Task check button ── */
+.task-check {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  border: 2px solid var(--border);
+  background: transparent;
+  cursor: pointer;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+  -webkit-tap-highlight-color: transparent;
+}
+.task-check:hover { border-color: var(--execution); }
+.task-check--done {
+  background: var(--execution);
+  border-color: var(--execution);
+}
+.task-check__tick {
+  font-size: 0.7rem;
+  color: var(--text-inverse);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.exec-task-row__info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.exec-task-row__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: var(--text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.exec-task-row__desc {
+  font-size: 0.74rem;
+  color: var(--text-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.exec-task-row__meta {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  flex-shrink: 0;
+}
+.exec-priority-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ── Habit grid ── */
+.exec-habit-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-3);
+}
+@media (min-width: 480px) {
+  .exec-habit-grid { grid-template-columns: repeat(4, 1fr); }
+}
+@media (min-width: 700px) {
+  .exec-habit-grid { grid-template-columns: repeat(5, 1fr); }
+}
+
+.habit-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: var(--sp-4) var(--sp-2);
+  border-radius: var(--r-lg);
+  border: 1.5px solid var(--border);
+  background: var(--bg-card);
+  cursor: pointer;
+  transition: all 0.15s;
+  position: relative;
+  overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+.habit-tile:hover { border-color: var(--border-active); background: var(--bg-card-hover); }
+.habit-tile--done {
+  background: color-mix(in srgb, var(--habit-color, var(--execution)) 12%, transparent);
+  border-color: color-mix(in srgb, var(--habit-color, var(--execution)) 40%, transparent);
+}
+.habit-tile__icon { font-size: 1.4rem; line-height: 1; }
+.habit-tile__name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.65rem;
+  color: var(--text-secondary);
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+}
+.habit-tile__streak {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  font-size: 0.62rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+.habit-tile--done .habit-tile__streak { color: var(--habit-color, var(--execution)); }
+.habit-tile__check {
+  position: absolute;
+  top: 5px; right: 6px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--habit-color, var(--execution));
+}
+
+/* ── Task full list (TasksPage) ── */
+.tasks-toolbar {
+  display: flex;
+  gap: var(--sp-3);
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.task-filter-pill {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 12px;
+  border-radius: var(--r-full);
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text-muted);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.14s;
+  white-space: nowrap;
+  -webkit-tap-highlight-color: transparent;
+}
+.task-filter-pill:hover { border-color: var(--border-active); color: var(--text-secondary); }
+.task-filter-pill--active {
+  background: var(--execution-dim);
+  border-color: rgba(253,121,168,0.35);
+  color: var(--execution);
+}
+
+.task-add-fab {
+  position: fixed;
+  bottom: calc(var(--nav-height) + env(safe-area-inset-bottom) + 14px);
+  right: 18px;
+  width: 52px; height: 52px;
+  border-radius: var(--r-full);
+  background: var(--execution);
+  color: white;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(253,121,168,0.4), 0 4px 18px rgba(0,0,0,0.4);
+  transition: all 0.18s;
+  z-index: 25;
+}
+.task-add-fab:hover  { background: #ff8ab5; transform: scale(1.07); }
+.task-add-fab:active { transform: scale(0.93); }
+@media (min-width: 1024px) { .task-add-fab { bottom: 28px; right: 32px; } }
+
+/* ── Habit full list (HabitsPage) ── */
+.habits-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+
+.habit-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  padding: var(--sp-4) var(--sp-5);
+}
+
+.habit-card__header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.habit-card__icon {
+  width: 42px; height: 42px;
+  border-radius: var(--r-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.habit-card__info { flex: 1; min-width: 0; }
+.habit-card__name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.habit-card__freq {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.habit-card__actions { display: flex; gap: 5px; flex-shrink: 0; }
+
+.habit-card__stats {
+  display: flex;
+  gap: var(--sp-4);
+}
+
+.habit-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+.habit-stat__label {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  font-family: var(--font-display);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.habit-stat__value {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1rem;
+  letter-spacing: -0.02em;
+}
+
+/* ── Streak display ── */
+.streak-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 9px;
+  border-radius: var(--r-full);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.72rem;
+}
+
+/* ── Full task card (TasksPage) ── */
+.exec-task-full {
+  padding: var(--sp-4);
+  transition: all 0.15s;
+}
+.exec-task-full:hover { border-color: var(--border-active); }
+
+.exec-task-full__header {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.exec-task-full__info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.exec-task-full__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+.exec-task-full__title--done {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+.exec-task-full__desc {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.exec-task-full__meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 2px;
+}

@@ -1,0 +1,112 @@
+.module-shell {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-6);
+}
+
+.module-shell__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: var(--r-full);
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  align-self: flex-start;
+}
+
+.module-shell__hero {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+.module-shell__hero h2 { font-size: 1.5rem; }
+.module-shell__hero p  { font-size: 0.9rem; color: var(--text-secondary); }
+
+.module-shell__nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.module-nav-card {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+  padding: var(--sp-4) var(--sp-5);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.module-nav-card__icon {
+  width: 44px; height: 44px;
+  border-radius: var(--r-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.module-nav-card__text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.module-nav-card__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--text-primary);
+}
+
+.module-nav-card__sub {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+/* Score info card */
+.module-shell__score-info {
+  padding: var(--sp-4) var(--sp-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.module-shell__score-label {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-family: var(--font-display);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.module-shell__score-rows {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.module-shell__score-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-4);
+}
+
+.module-shell__score-row-label {
+  font-size: 0.84rem;
+  color: var(--text-secondary);
+  font-family: var(--font-display);
+}
+
+.module-shell__score-row-pts {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.84rem;
+  flex-shrink: 0;
+}

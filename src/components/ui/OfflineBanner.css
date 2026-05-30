@@ -1,0 +1,26 @@
+.offline-banner {
+  position: fixed;
+  top: calc(var(--score-bar-height) + env(safe-area-inset-top));
+  left: 0;
+  right: 0;
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 9px 16px;
+  background: rgba(253, 203, 110, 0.15);
+  border-bottom: 1px solid rgba(253, 203, 110, 0.3);
+  color: var(--warning);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.78rem;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  animation: slideDown 0.25s ease;
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-100%); opacity: 0; }
+  to   { transform: translateY(0);     opacity: 1; }
+}

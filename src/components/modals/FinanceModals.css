@@ -1,0 +1,113 @@
+/* ── Type Toggle ── */
+.type-toggle {
+  display: flex;
+  background: var(--bg-surface);
+  border-radius: var(--r-md);
+  padding: 3px;
+  gap: 3px;
+}
+.type-toggle__btn {
+  flex: 1; padding: 8px;
+  border-radius: var(--r-sm);
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.84rem;
+  cursor: pointer;
+  transition: all 0.18s;
+}
+.type-toggle__btn--active { color: var(--text-primary); }
+.type-toggle__btn--expense.type-toggle__btn--active { background: var(--expense-dim); color: var(--expense); }
+.type-toggle__btn--income.type-toggle__btn--active  { background: var(--income-dim);  color: var(--income); }
+
+/* ── Amount Input ── */
+.amount-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.amount-input__prefix {
+  position: absolute;
+  left: 14px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  pointer-events: none;
+}
+.amount-input {
+  width: 100%;
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-md);
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.6rem;
+  padding: 12px 14px 12px 42px;
+  outline: none;
+  transition: all 0.18s;
+  letter-spacing: -0.02em;
+  -webkit-appearance: none;
+}
+.amount-input:focus { border-color: var(--accent); background: var(--bg-card); box-shadow: 0 0 0 3px var(--accent-dim); }
+.amount-input--error { border-color: var(--danger); }
+.amount-input::-webkit-inner-spin-button,
+.amount-input::-webkit-outer-spin-button { -webkit-appearance: none; }
+
+/* ── Category Grid ── */
+.cat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+}
+@media (min-width: 400px) { .cat-grid { grid-template-columns: repeat(5, 1fr); } }
+
+.cat-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: 9px 4px;
+  border-radius: var(--r-md);
+  border: 1.5px solid var(--border);
+  background: var(--bg-surface);
+  cursor: pointer;
+  transition: all 0.14s;
+  -webkit-tap-highlight-color: transparent;
+}
+.cat-btn:hover { border-color: var(--border-active); background: var(--bg-card); }
+.cat-btn--active {
+  background: color-mix(in srgb, var(--cat-color, var(--accent)) 15%, transparent);
+  border-color: color-mix(in srgb, var(--cat-color, var(--accent)) 50%, transparent);
+}
+.cat-btn__icon { font-size: 1.2rem; line-height: 1; }
+.cat-btn__name {
+  font-size: 0.62rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--text-muted);
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+}
+.cat-btn--active .cat-btn__name { color: var(--text-secondary); }
+
+/* ── Income button variant ── */
+.btn-income {
+  background: var(--income);
+  color: #07070f;
+  font-weight: 700;
+}
+.btn-income:hover { background: #00cfaa; transform: translateY(-1px); }
+
+/* ── Delete confirm ── */
+.delete-confirm-text {
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
