@@ -1,16 +1,8 @@
-<<<<<<< HEAD
 import { useEffect, useState } from 'react'
-=======
-import { useEffect } from 'react'
->>>>>>> 37412e791e3d8fdcf1ec9a47652343000fde0ba9
 import { Link } from 'react-router-dom'
 import { useAuth } from '../../context/AuthContext'
 import { useOSStore } from '../../context/OSStore'
 import { supabase } from '../../services/supabase'
-<<<<<<< HEAD
-=======
-import { useState } from 'react'
->>>>>>> 37412e791e3d8fdcf1ec9a47652343000fde0ba9
 import { format } from 'date-fns'
 import {
   Wallet, CheckSquare, TrendingUp, Target,

@@ -464,7 +464,6 @@ a  { color: var(--accent-bright); text-decoration: none; }
   transition: color 0.15s;
 }
 .input-action:hover { color: var(--text-secondary); }
-<<<<<<< HEAD
 
 /* ============================================================
    PHASE 7 POLISH — Mobile + consistency fixes
@@ -557,5 +556,3 @@ button, a {
   scrollbar-width: none;
 }
 .finance-tab-nav::-webkit-scrollbar { display: none; }
-=======
->>>>>>> 37412e791e3d8fdcf1ec9a47652343000fde0ba9

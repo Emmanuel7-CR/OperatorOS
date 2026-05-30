@@ -1,13 +1,8 @@
 import { useState, useEffect } from 'react'
 import { useAuth } from '../../context/AuthContext'
-<<<<<<< HEAD
 import { useFinanceStore } from '../../context/financeStore'
 import toast from 'react-hot-toast'
 import { User, Sliders, Tag, LogOut, Check, Zap, Trash2, Plus, X } from 'lucide-react'
-=======
-import toast from 'react-hot-toast'
-import { User, Sliders, Shield, LogOut, Check, Zap } from 'lucide-react'
->>>>>>> 37412e791e3d8fdcf1ec9a47652343000fde0ba9
 import './SettingsPage.css'
 
 const CURRENCIES = [
@@ -15,7 +10,6 @@ const CURRENCIES = [
   { code: 'USD', label: '$ US Dollar' },
 ]
 
-<<<<<<< HEAD
 const CAT_COLORS = ['#6c5ce7','#00b894','#e17055','#fdcb6e','#4db8ff','#fd79a8','#00cec9','#a29bfe','#55efc4','#ff9f43']
 const CAT_ICONS  = ['🍕','🚌','🎮','📚','🏋️','🎁','🐾','🌿','🎵','🛠️','☕','🧴','🎯','💡','🏠','✈️']
 
@@ -47,29 +41,11 @@ export default function SettingsPage() {
   }, [profile, user?.id])
 
   function setF(k, v) { setForm(f => ({ ...f, [k]: v })) }
-=======
-export default function SettingsPage() {
-  const { user, profile, signOut, updateProfile } = useAuth()
-  const [form, setForm]   = useState({ full_name: '', currency: 'NGN', daily_task_target: 5, daily_outreach_target: 2 })
-  const [saving, setSaving] = useState(false)
-
-  useEffect(() => {
-    if (profile) setForm({
-      full_name:             profile.full_name             || '',
-      currency:              profile.currency              || 'NGN',
-      daily_task_target:     profile.daily_task_target     || 5,
-      daily_outreach_target: profile.daily_outreach_target || 2,
-    })
-  }, [profile])
-
-  function set(k, v) { setForm(f => ({ ...f, [k]: v })) }
->>>>>>> 37412e791e3d8fdcf1ec9a47652343000fde0ba9
 
   async function handleSave() {
     setSaving(true)
     try {
       await updateProfile(form)
-<<<<<<< HEAD
       toast.success('Settings saved ✓')
     } catch (e) { toast.error(e.message || 'Save failed') }
     finally { setSaving(false) }
@@ -85,14 +61,6 @@ export default function SettingsPage() {
       setShowCatForm(false)
     } catch (e) { toast.error(e.message) }
     finally { setAddingCat(false) }
-=======
-      toast.success('Profile saved')
-    } catch (e) {
-      toast.error(e.message || 'Save failed')
-    } finally {
-      setSaving(false)
-    }
->>>>>>> 37412e791e3d8fdcf1ec9a47652343000fde0ba9
   }
 
   return (
@@ -110,7 +78,6 @@ export default function SettingsPage() {
           </div>
           <h3>Profile</h3>
         </div>
-<<<<<<< HEAD
         <div className="settings-fields">
           <div className="form-group">
             <label className="form-label">Full Name</label>
@@ -124,52 +91,12 @@ export default function SettingsPage() {
             <label className="form-label">Currency</label>
             <select className="form-select" value={form.currency} onChange={e => setF('currency', e.target.value)}>
               {CURRENCIES.map(c => <option key={c.code} value={c.code}>{c.label}</option>)}
-=======
-
-        <div className="settings-fields">
-          <div className="form-group">
-            <label className="form-label">Full Name</label>
-            <input
-              className="form-input"
-              type="text"
-              value={form.full_name}
-              onChange={e => set('full_name', e.target.value)}
-              placeholder="Your full name"
-            />
-          </div>
-
-          <div className="form-group">
-            <label className="form-label">Email</label>
-            <input
-              className="form-input"
-              type="email"
-              value={user?.email || ''}
-              disabled
-              style={{ opacity: 0.5 }}
-            />
-          </div>
-
-          <div className="form-group">
-            <label className="form-label">Currency</label>
-            <select
-              className="form-select"
-              value={form.currency}
-              onChange={e => set('currency', e.target.value)}
-            >
-              {CURRENCIES.map(c => (
-                <option key={c.code} value={c.code}>{c.label}</option>
-              ))}
->>>>>>> 37412e791e3d8fdcf1ec9a47652343000fde0ba9
             </select>
           </div>
         </div>
       </section>
 
-<<<<<<< HEAD
       {/* Daily Targets */}
-=======
-      {/* OS Targets */}
->>>>>>> 37412e791e3d8fdcf1ec9a47652343000fde0ba9
       <section className="settings-section card">
         <div className="settings-section__header">
           <div className="settings-section__icon" style={{ background: 'var(--execution-dim)', color: 'var(--execution)' }}>
@@ -177,7 +104,6 @@ export default function SettingsPage() {
           </div>
           <h3>Daily Targets</h3>
         </div>
-<<<<<<< HEAD
         <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
           These targets set how your execution score is calculated each day.
         </p>
@@ -189,38 +115,10 @@ export default function SettingsPage() {
           <div className="form-group">
             <label className="form-label">Daily Outreach Target</label>
             <input className="form-input" type="number" min="1" max="100" value={form.daily_outreach_target} onChange={e => setF('daily_outreach_target', parseInt(e.target.value) || 1)} />
-=======
-        <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>
-          These targets determine how your execution score is calculated each day.
-        </p>
-
-        <div className="settings-fields">
-          <div className="form-group">
-            <label className="form-label">Daily Task Target</label>
-            <input
-              className="form-input"
-              type="number"
-              min="1" max="20"
-              value={form.daily_task_target}
-              onChange={e => set('daily_task_target', parseInt(e.target.value) || 1)}
-            />
-          </div>
-
-          <div className="form-group">
-            <label className="form-label">Daily Outreach Target</label>
-            <input
-              className="form-input"
-              type="number"
-              min="1" max="50"
-              value={form.daily_outreach_target}
-              onChange={e => set('daily_outreach_target', parseInt(e.target.value) || 1)}
-            />
->>>>>>> 37412e791e3d8fdcf1ec9a47652343000fde0ba9
           </div>
         </div>
       </section>
 
-<<<<<<< HEAD
       {/* Save */}
       <button className="btn btn-primary btn-full btn-lg" onClick={handleSave} disabled={saving}>
         {saving ? <span className="btn-spinner" /> : <><Check size={16} /> Save Settings</>}
@@ -310,20 +208,6 @@ export default function SettingsPage() {
         </div>
       </section>
 
-=======
-      {/* Save button */}
-      <button
-        className="btn btn-primary btn-full btn-lg"
-        onClick={handleSave}
-        disabled={saving}
-      >
-        {saving
-          ? <span className="btn-spinner" />
-          : <><Check size={16} /> Save Settings</>
-        }
-      </button>
-
->>>>>>> 37412e791e3d8fdcf1ec9a47652343000fde0ba9
       {/* About */}
       <section className="settings-section card">
         <div className="settings-section__header">
@@ -333,16 +217,10 @@ export default function SettingsPage() {
           <h3>About OperatorOS</h3>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-<<<<<<< HEAD
           <p style={{ fontSize: '0.84rem' }}>Version 1.0.0 — All phases complete</p>
           <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
             All data is stored securely in Supabase with Row Level Security on every table.
             Finance · Execute · Growth · Vision — one unified OS.
-=======
-          <p style={{ fontSize: '0.84rem' }}>Version 1.0.0 — Phase 3 Core Shell</p>
-          <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
-            Your data is stored securely in Supabase with Row Level Security enabled on all tables.
->>>>>>> 37412e791e3d8fdcf1ec9a47652343000fde0ba9
           </p>
         </div>
       </section>
