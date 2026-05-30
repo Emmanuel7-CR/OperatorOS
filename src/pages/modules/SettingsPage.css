@@ -38,6 +38,7 @@
   flex-direction: column;
   gap: 14px;
 }
+<<<<<<< HEAD
 
 /* ── Category form ── */
 .cat-form {
@@ -102,3 +103,5 @@
 }
 .icon-action-btn:hover { background: var(--bg-card-hover); color: var(--text-primary); }
 .icon-action-btn--danger:hover { background: var(--expense-dim); color: var(--expense); }
+=======
+>>>>>>> 37412e791e3d8fdcf1ec9a47652343000fde0ba9

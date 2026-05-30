@@ -66,6 +66,7 @@
 .finance-shell__content {
   min-height: 200px;
 }
+<<<<<<< HEAD
 
 /* Execute module tab active colour */
 .finance-tab--execute {
@@ -85,3 +86,5 @@
   background: var(--vision-dim);
   border-color: rgba(162, 155, 254, 0.25);
 }
+=======
+>>>>>>> 37412e791e3d8fdcf1ec9a47652343000fde0ba9
